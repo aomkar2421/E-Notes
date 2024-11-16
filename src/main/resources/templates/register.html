@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{ base :: layout('E Notes | Register', ~{::section}) }">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<section>
+		<section class="mt-5">
+			<div class="container-fluid h-custom">
+				<div class="row d-flex justify-content-center align-items-center">
+					<div class="col-md-9 col-lg-6 col-xl-5">
+						<img
+							src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+							class="img-fluid" alt="Sample image">
+					</div>
+
+					<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+					
+					<h2 class="text-center">Register Page</h2>
+					
+					<th:block th:if="${session.msg}">
+						<p class="fs-5 text-center text-success">[[${session.msg}]]</p> 
+						<th:block th:text="${@userServiceImpl.removeSessionMessage()}"></th:block>
+					</th:block>
+					
+						<form action="saveUser" method="post" class="mt-5">
+
+							<div data-mdb-input-init class="form-outline mb-3">
+								<label class="form-label" for="form3Example3">Enter Full
+									Name</label> <input type="text" name="name" id="form3Example3"
+									class="form-control" />
+							</div>
+
+							<div data-mdb-input-init class="form-outline mb-3">
+								<label class="form-label" for="form3Example3">Enter
+									Email Address</label> <input type="email" name="email"
+									id="form3Example3" class="form-control" />
+							</div>
+
+							<div data-mdb-input-init class="form-outline mb-3">
+								<label class="form-label" for="form3Example3">Enter
+									Password</label> <input type="password" name="password" id="form3Example4"
+									class="form-control" />
+							</div>
+
+							<div data-mdb-input-init class="form-outline mb-3">
+								<label class="form-label" for="form3Example3">Enter
+									Qualification</label> <input type="text" name="qualification"
+									id="form3Example3" class="form-control" />
+							</div>
+
+							<div class="mb-3">
+							<div class="mb-2">Gender</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio"
+										name="gender" id="inlineRadio1" value="male">
+									<label class="form-check-label" for="inlineRadio1">Male</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio"
+										name="gender" id="inlineRadio2" value="female">
+									<label class="form-check-label" for="inlineRadio2">Female</label>
+								</div>
+	
+							</div>
+
+							<div data-mdb-input-init class="form-outline mb-3">
+								<label class="form-label" for="form3Example3">Enter
+									Address</label> <input type="test" name="address" id="form3Example3"
+									class="form-control" />
+							</div>
+
+							<div class="text-center text-lg-start mt-4 pt-2">
+								<button type="submit" data-mdb-button-init data-mdb-ripple-init
+									class="btn btn-primary"
+									style="padding-left: 2.5rem; padding-right: 2.5rem; background-color: #ffb347; color: #3d3d3d">Register</button>
+								<p class="small fw-bold mt-2 pt-1 mb-0">
+									Already have an account? <a href="signin" class="link-danger">Login</a>
+								</p>
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+			<hr>
+
+		</section>
+	</section>
+</body>
+</html>

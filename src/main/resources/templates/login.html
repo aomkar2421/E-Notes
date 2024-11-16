@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{ base :: layout('E Notes | Login', ~{::section}) }">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<section>
+		<section class="mt-5">
+			<div class="container-fluid h-custom">
+				<div class="row d-flex justify-content-center align-items-center">
+					<div class="col-md-9 col-lg-6 col-xl-5">
+						<img
+							src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+							class="img-fluid" alt="Sample image">
+					</div>
+
+					<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+
+						<h2 class="text-center">Login</h2>
+
+						<th:block th:if="${param.error}">
+							<p class="text-center text-danger fs-5">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
+						</th:block>
+
+						<th:block th:if="${param.logout}">
+							<p class="text-center text-danger fs-5">Logout Succesfully</p>
+						</th:block>
+
+						<form action="userLogin" method="post" class="mt-5">
+
+							<div data-mdb-input-init class="form-outline mb-4">
+								<label class="form-label" for="form3Example3">Email
+									address</label> <input type="email" name="username" id="form3Example3"
+									class="form-control form-control-lg"
+									placeholder="Enter a valid email address" />
+							</div>
+
+							<div data-mdb-input-init class="form-outline mb-3">
+								<label class="form-label" for="form3Example3">Password</label> <input
+									type="password" name="password" id="form3Example4"
+									class="form-control form-control-lg"
+									placeholder="Enter password" />
+							</div>
+
+							<div class="text-center text-lg-start mt-4 pt-2">
+								<button type="submit" data-mdb-button-init data-mdb-ripple-init
+									class="btn btn-primary btn-lg"
+									style="padding-left: 2.5rem; padding-right: 2.5rem; background-color: #ffb347; color: #3d3d3d">Login</button>
+								<p class="small fw-bold mt-2 pt-1 mb-0">
+									Don't have an account? <a href="register" class="link-danger">Register</a>
+								</p>
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+			<hr>
+
+		</section>
+	</section>
+</body>
+</html>

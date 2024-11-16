@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{ base :: layout('E Notes | Edit Notes', ~{::section}) }">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<section>
+		<div class="container my-5">
+			<div class="row">
+				<div class="col-md-10 offset-md-1">
+					<div class="card">
+						<div class="card-header text-center">
+							<h3 style="color: #3d3d3d">Add your Notes</h3>
+
+						</div>
+						<div class="card-body">
+							<form action="/user/updateNotes" method="post">
+								<div class="mb-3">
+									<label>Enter Title</label> <input type="text"
+										th:value="${n.title}" name="title" class="form-control">
+								</div>
+
+								<div class="mb-3">
+									<label>Enter Description</label>
+									<textarea rows="6" cols="" class="form-control"
+										name="description">[[${n.description}]]</textarea>
+								</div>
+								<input type="hidden" th:value="${n.id}" name="id">
+								<button class="btn btn-primary mt-4 custom-btn">Edit</button>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
